@@ -1,0 +1,19 @@
+<h2>Gestión de Estudiantes</h2>
+<input id="nombre" placeholder="Nombre">
+<input id="carrera" placeholder="Carrera">
+<button onclick="guardar()">Guardar</button>
+
+<script>
+async function guardar() {
+    // Reemplaza IP_API por la IP PÚBLICA de tu servidor API
+    const res = await fetch('http://IP_API:5000/estudiantes', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            nombre: document.getElementById('nombre').value, 
+            carrera: document.getElementById('carrera').value
+        })
+    });
+    alert('Respuesta del servidor: ' + res.status);
+}
+</script>
