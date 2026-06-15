@@ -1,0 +1,35 @@
+<div style="font-family: sans-serif; padding: 20px;">
+    <h1>Portal Académico</h1>
+
+    <section>
+        <h2>Gestión de Estudiantes</h2>
+        <input [(ngModel)]="estudiante.nombre" placeholder="Nombre">
+        <input [(ngModel)]="estudiante.carrera" placeholder="Carrera">
+        <button (click)="guardarEstudiante()">Guardar Estudiante</button>
+        <button (click)="listarEstudiantes()">Listar Estudiantes</button>
+        <pre style="background: #f4f4f4; padding: 10px;">{{ resEstudiantes | json }}</pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Registro de Usuarios</h2>
+        <input [(ngModel)]="usuario.username" placeholder="Usuario">
+        <input type="password" [(ngModel)]="usuario.password" placeholder="Contraseña">
+        <button (click)="registrarUsuario()">Registrar Usuario</button>
+        <pre style="background: #f4f4f4; padding: 10px;">{{ resUsuarios | json }}</pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Multimedia</h2>
+        <input type="file" (change)="onFileSelected($event)">
+        <button (click)="subirArchivo()">Subir Archivo</button>
+        <button (click)="listarArchivos()">Listar Archivos</button>
+        <br><br>
+        <input [(ngModel)]="recursoId" placeholder="ID del recurso">
+        <button (click)="obtenerMetadatos()">Obtener Metadatos</button>
+        <pre style="background: #f4f4f4; padding: 10px;">{{ resMultimedia | json }}</pre>
+    </section>
+</div>
